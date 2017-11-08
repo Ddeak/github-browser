@@ -1,9 +1,9 @@
-import { NavigationActions, StackNavigator, TabNavigator } from 'react-navigation'
+import { StackNavigator, TabNavigator } from 'react-navigation'
 
 import Profile from '../screens/Profile/Profile'
 import Organisations from '../screens/Organisations/Organisations'
 import Repositories from '../screens/Repositories/Repositories'
-import Login from '../screens/Login/Login'
+import Login from '../screens/Login/LoginWrapper'
 
 const TabbedScreens = TabNavigator({
   Profile: { screen: Profile },
