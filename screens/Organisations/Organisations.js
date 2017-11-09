@@ -8,6 +8,12 @@ export default class Organisations extends Component {
     title: `Organisations`,
   });
 
+  componentWillMount() {
+    console.log(this.props)
+    console.log('In will mount')
+    this.props.getOrganisations(this.props.token)
+  }
+
   render () {
     return (
       <View>

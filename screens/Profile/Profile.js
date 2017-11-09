@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
 export default class Profile extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -8,11 +8,21 @@ export default class Profile extends Component {
   });
 
   render () {
-    const { params } = this.props.navigation.state
+    const { profile } = this.props
+    let text = null;
+    if (profile) {
+      text = 
+        <View>
+          <Image source={{uri: profile.avatar_url}} style={{ width: 50, height: 50 }} />
+          <Text>{profile.name}</Text>
+          <Text>{profile.bio}</Text>
+        </View>
+    } else {
+      text = <Text>Awaiting profile</Text>
+    }
     return (
       <View>
-        <Text>Hello from the profile</Text>
-        <Text>{params.token}</Text>
+        {text}
       </View>
     )
   }

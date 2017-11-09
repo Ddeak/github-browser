@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { login } from '../../actions/login'
+import { doLogin } from '../../actions/user'
 import LoginScreen from './Login.js'
 
 const mapStateToProps = (state) => {
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     onPress: user => {
-      dispatch(login(user))
+      dispatch(doLogin(user))
     }
   }
 }

@@ -5,8 +5,8 @@ class LoginScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: 'username',
-      password: 'password',
+      username: 'nelsona',
+      password: 'linda23_gh',
       twofactor: ''
     }
   }
@@ -14,6 +14,12 @@ class LoginScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Login'
   })
+
+  clickButton = () => {
+    this.props.onPress(this.state)
+    const { navigate } = this.props.navigation;
+    navigate('Profile')
+  }
 
   render () {
     return (
@@ -35,7 +41,7 @@ class LoginScreen extends Component {
           onChangeText={(twofactor) => this.setState({twofactor})}
         />
         <Button
-          onPress={() => this.props.onPress(this.state)}
+          onPress={this.clickButton}
           title="Login"
           color="#841584"
           accessibilityLabel="Login"

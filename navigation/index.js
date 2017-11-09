@@ -1,7 +1,7 @@
 import { StackNavigator, TabNavigator } from 'react-navigation'
 
-import Profile from '../screens/Profile/Profile'
-import Organisations from '../screens/Organisations/Organisations'
+import Profile from '../screens/Profile/ProfileWrapper'
+import Organisations from '../screens/Organisations/OrganisationsWrapper'
 import Repositories from '../screens/Repositories/Repositories'
 import Login from '../screens/Login/LoginWrapper'
 
