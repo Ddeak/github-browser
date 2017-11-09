@@ -2,7 +2,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation'
 
 import Profile from '../screens/Profile/ProfileWrapper'
 import Organisations from '../screens/Organisations/OrganisationsWrapper'
-import Repositories from '../screens/Repositories/Repositories'
+import Repositories from '../screens/Repositories/RepositoriesWrapper'
 import Login from '../screens/Login/LoginWrapper'
 
 const TabbedScreens = TabNavigator({

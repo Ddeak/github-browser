@@ -7,9 +7,24 @@ export default class Repositories extends Component {
   });
 
   render () {
+    console.log(this.props)
+    const { repositories } = this.props
+    let layout = null
+
+    if (repositories.length === 0) {
+      layout = <Text>You do not have any repositories</Text>
+    } else {
+      layout = 
+        <ListView
+          dataSource={repositories}
+          renderRow={(rowData) => <Text>{rowData}</Text>}
+        />
+    }
+
+
     return (
       <View>
-        <Text>Hello from the Repositories</Text>
+        { layout }
       </View>
     )
   }

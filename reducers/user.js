@@ -1,4 +1,13 @@
-import { LOGIN, LOGGED_IN, PROFILE, GOT_PROFILE } from '../actions/user'
+import {
+  LOGIN,
+  LOGGED_IN,
+  PROFILE,
+  GOT_PROFILE,
+  ORGANISATIONS,
+  GOT_ORGANISATIONS,
+  REPOSITORIES,
+  GOT_REPOSITORIES
+} from '../actions/user'
 
 const initialState = {
   fetching: false,
@@ -27,6 +36,24 @@ export default function user (state = initialState, action) {
       return Object.assign({}, state, {
         fetching: false,
         profile: action.profile
+      })
+    case ORGANISATIONS:
+      return Object.assign({}, state, {
+        fetching: true
+      })
+    case GOT_ORGANISATIONS:
+      return Object.assign({}, state, {
+        fetching: false,
+        organisations: action.organisations
+      })
+    case REPOSITORIES:
+      return Object.assign({}, state, {
+        fetching: true
+      })
+    case GOT_REPOSITORIES:
+      return Object.assign({}, state, {
+        fetching: false,
+        repositories: action.repositories
       })
     default:
       return state

@@ -63,6 +63,7 @@ export function doLogin (user) {
       if (isValid) {
         dispatch(loggedIn(json.token))
         dispatch(getProfile(json.token))
+        dispatch(getOrganisations(json.token))
       } else {
         throw new Error(json.message)
       }
@@ -110,7 +111,6 @@ export function gotOrganisations (organisations) {
 }
 
 export function getOrganisations (token) {
-  console.log('token', token)
   return (dispatch) => {
     dispatch(loadOrganisations())
     return fetch(`https://api.github.com/user/orgs?access_token=${token}`, {
@@ -121,7 +121,6 @@ export function getOrganisations (token) {
       return response.json()
     .then((json) => {
       if (isValid) {
-        console.log(json)
         dispatch(gotOrganisations(json))
       } else {
         throw new Error(json.message)
@@ -133,7 +132,41 @@ export function getOrganisations (token) {
     })
   }
 }
-export function getRepositories (userId) {
+
+export const REPOSITORIES = 'REPOSITORIES'
+
+export function loadRepositories () {
+  return { type: REPOSITORIES }
+}
+
+export const GOT_REPOSITORIES = 'GOT_REPOSITORIES'
+
+export function gotRepositories (repositories) {
+  return { type: GOT_REPOSITORIES, repositories: repositories }
+}
+
+export function getRepositories (token) {
+  return (dispatch) => {
+    dispatch(loadRepositories())
+    return fetch(`https://api.github.com/user/repos?access_token=${token}`, {
+      method: 'GET'
+    })
+    .then((response) => {
+      const isValid = response.status < 400
+      return response.json()
+    .then((json) => {
+      if (isValid) {
+        console.log(json)
+        dispatch(gotRepositories(json))
+      } else {
+        throw new Error(json.message)
+      }
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+    })
+  }
 }
 
 export function getLatestCommit (userId, repositoryId) {
