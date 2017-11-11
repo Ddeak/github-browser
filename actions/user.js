@@ -64,6 +64,7 @@ export function doLogin (user) {
         dispatch(loggedIn(json.token))
         dispatch(getProfile(json.token))
         dispatch(getOrganisations(json.token))
+        dispatch(getRepositories(json.token))
       } else {
         throw new Error(json.message)
       }

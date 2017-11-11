@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 
 export default class Repositories extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: `Repositories`,
   });
+
+  _keyExtractor = (item, index) => item.id
 
   render () {
     console.log(this.props)
@@ -15,9 +17,10 @@ export default class Repositories extends Component {
       layout = <Text>You do not have any repositories</Text>
     } else {
       layout = 
-        <ListView
-          dataSource={repositories}
-          renderRow={(rowData) => <Text>{rowData}</Text>}
+        <FlatList
+          data={repositories}
+          keyExtractor={this._keyExtractor}
+          renderItem={({item}) => <Text>{item.name}</Text>}
         />
     }
 
