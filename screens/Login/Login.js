@@ -5,8 +5,8 @@ class LoginScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: 'username',
-      password: 'password',
+      username: '',
+      password: '',
       twofactor: ''
     }
   }
@@ -26,19 +26,26 @@ class LoginScreen extends Component {
     <View style={{alignItems: 'center'}}>
         <Image source={require('../..//GitHub_Logo.png')} style={{width: 250, height: 110}}/>
         <TextInput
-          style={{ width: 193, height: 40, borderColor: 'gray', borderWidth: 1}}
-          defaultValue={this.state.username}
+          style={{ width: 193, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 10 }}
+          placeholder='username'
           onChangeText={(username) => this.setState({username})}
+          autoCapitalize='none'
+          autoCorrect={false}
         />
         <TextInput
-          style={{ width: 193, height: 40, borderColor: 'gray', borderWidth: 1}}
-          defaultValue={this.state.password}
+          style={{ width: 193, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 10 }}
+          placeholder='password'
           onChangeText={(password) => this.setState({password})}
+          autoCapitalize='none'
+          autoCorrect={false}
+          secureTextEntry={true}
         />
         <TextInput
-          style={{ width: 193, height: 40, borderColor: 'gray', borderWidth: 1}}
-          defaultValue={this.state.twofactor}
+          style={{ width: 193, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 10 }}
+          placeholder='2FA Code'
           onChangeText={(twofactor) => this.setState({twofactor})}
+          autoCapitalize='none'
+          autoCorrect={false}
         />
         <Button
           onPress={this.clickButton}

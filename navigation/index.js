@@ -9,6 +9,12 @@ const TabbedScreens = TabNavigator({
   Profile: { screen: Profile },
   Organisations: { screen: Organisations },
   Repositories: { screen: Repositories }
+}, {
+  tabBarOptions: {
+    labelStyle: {
+      fontSize: 14
+    }
+  }
 })
 
 const SecuredScreens = StackNavigator({

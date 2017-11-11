@@ -12,13 +12,22 @@ export default class Profile extends Component {
     let text = null;
     if (profile) {
       text = 
-        <View>
-          <Image source={{uri: profile.avatar_url}} style={{ width: 50, height: 50 }} />
-          <Text>{profile.name}</Text>
-          <Text>{profile.bio}</Text>
+        <View
+          style={{ alignItems: 'center' }}
+        >
+          <View
+            style={{ width: 300, marginTop: 30 }}
+          >
+            <Image source={{uri: profile.avatar_url}} style={{ width: 50, height: 50 }} />
+            <Text
+              style={{ marginBottom: 10 }}>
+              {profile.name}
+            </Text>
+            <Text>{profile.bio}</Text>
+          </View>
         </View>
     } else {
-      text = <Text>Awaiting profile</Text>
+      text = <Text>Spinner would be spinning just now.</Text>
     }
     return (
       <View>

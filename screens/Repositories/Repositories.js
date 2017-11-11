@@ -9,8 +9,8 @@ export default class Repositories extends Component {
   _keyExtractor = (item, index) => item.id
 
   render () {
-    console.log(this.props)
     const { repositories } = this.props
+
     let layout = null
 
     if (repositories.length === 0) {
@@ -20,7 +20,15 @@ export default class Repositories extends Component {
         <FlatList
           data={repositories}
           keyExtractor={this._keyExtractor}
-          renderItem={({item}) => <Text>{item.name}</Text>}
+          renderItem={({item}) => 
+              <View
+                style={{ marginLeft: 20, marginRight: 20, marginTop: 10, marginBottom: 10, borderBottomWidth: 1, borderBottomColor: '#000' }}
+              >
+                <Text>{item.name}</Text>
+                <Text>{item.created_at}</Text>
+                <Text>{item.language}</Text>
+              </View>
+          }
         />
     }
 
