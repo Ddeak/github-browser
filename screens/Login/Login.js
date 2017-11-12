@@ -1,5 +1,5 @@
 import React, { Component }from 'react';
-import { Button, Image, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, Image, Text, TextInput, View } from 'react-native';
 
 class LoginScreen extends Component {
   constructor(props) {

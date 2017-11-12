@@ -14,20 +14,25 @@ export default class Repositories extends Component {
     let layout = null
 
     if (repositories.length === 0) {
-      layout = <Text>You do not have any repositories</Text>
+      layout = 
+        <View style={{ marginTop: 20, marginLeft: 20 }}>
+          <Text>You do not have any repositories</Text>
+        </View>
     } else {
       layout = 
         <FlatList
           data={repositories}
           keyExtractor={this._keyExtractor}
           renderItem={({item}) => 
+            <View style={{ borderBottomWidth:1, borderBottomColor: '#000' }}>
               <View
-                style={{ marginLeft: 20, marginRight: 20, marginTop: 10, marginBottom: 10, borderBottomWidth: 1, borderBottomColor: '#000' }}
+                style={{ marginLeft: 20, marginRight: 20, marginTop: 10, marginBottom: 10 }}
               >
                 <Text>{item.name}</Text>
                 <Text>{item.created_at}</Text>
                 <Text>{item.language}</Text>
               </View>
+            </View>
           }
         />
     }

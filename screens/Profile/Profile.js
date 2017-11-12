@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 
 export default class Profile extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -27,7 +27,10 @@ export default class Profile extends Component {
           </View>
         </View>
     } else {
-      text = <Text>Spinner would be spinning just now.</Text>
+      text = 
+        <View style={{ marginTop: 20, marginLeft: 20 }}>
+          <Text>Spinner would be spinning just now.</Text>
+        </View>      
     }
     return (
       <View>
