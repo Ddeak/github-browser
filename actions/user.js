@@ -38,7 +38,7 @@ export function doLogin (user) {
 
     let headers = {
       'Authorization': 'Basic ' + encoded,
-      'User-Agent': 'GitHub Issue Browser',
+      'User-Agent': 'GitHub Browser',
       'Content-Type': 'application/json; charset=utf-8'
     }
 

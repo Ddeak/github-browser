@@ -37,7 +37,6 @@ export default class Repositories extends Component {
         />
     }
 
-
     return (
       <View>
         { layout }
